@@ -1,0 +1,1890 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.3">
+  <Nodes>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1290" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="CASE_STATUS" selected="True" />
+            <SelectField field="DECISION_DATE" selected="True" />
+            <SelectField field="EMPLOYEER_NAME" selected="True" />
+            <SelectField field="AGENT_REPRESENTING_EMPLOYER" selected="True" />
+            <SelectField field="SOC_NAME" selected="True" />
+            <SelectField field="WAGE_RATE_OF_PAY_FROM" selected="True" />
+            <SelectField field="WAGE_UNIT_OF_PAY" selected="True" />
+            <SelectField field="WORKSITE_POSTAL_CODE" selected="True" />
+            <SelectField field="EMPLOYER_NAME" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1350" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [WAGE_UNIT_OF_PAY]=='Month' THEN  [WAGE_RATE_OF_PAY_FROM]*12&#xA;&#xA; ELSEIF [WAGE_UNIT_OF_PAY]=='Hour' THEN [WAGE_RATE_OF_PAY_FROM]*40*52&#xA;&#xA; ELSEIF [WAGE_UNIT_OF_PAY]=='Week' THEN [WAGE_RATE_OF_PAY_FROM]*52&#xA;&#xA; ELSEIF [WAGE_UNIT_OF_PAY]=='Bi-Weekly' THEN [WAGE_RATE_OF_PAY_FROM]*26&#xA;&#xA; Else [WAGE_RATE_OF_PAY_FROM] ENDIF" field="WAGE_RATE_OF_PAY_FROM" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>WAGE_RATE_OF_PAY_FROM = IF [WAGE_UNIT_OF_PAY]=='Month' THEN  [WAGE_RATE_OF_PAY_F...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1434" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="WAGE_UNIT_OF_PAY" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1506" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="iif([AGENT_REPRESENTING_EMPLOYER]=='Y',1,0)" field="AGENT_REPRESENTING_EMPLOYER" size="255" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[AGENT_REPRESENTING_EMPLOYER = iif([AGENT_REPRESENTING_EMPLOYER]=='Y',1,0)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1614" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [CASE_STATUS] == &quot;CERTIFIED&quot; Then 1&#xA;&#xA;ElseIF [CASE_STATUS] == &quot;DENIED&quot; Then 0&#xA;&#xA;ElseIF [CASE_STATUS] == &quot;CERTIFIED-WITHDRAWN&quot; Then 2&#xA;&#xA;ElseIF [CASE_STATUS] == 'WITHDRAWN' Then 3&#xA;&#xA;Else null() Endif" field="CASE_STATUS" size="255" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>CASE_STATUS = IF [CASE_STATUS] == "CERTIFIED" Then 1
+
+ElseIF [CASE_STATUS] == "D...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1698" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="EMPLOYER_NAME" selected="False" />
+            <SelectField field="SOC_NAME" selected="True" />
+            <SelectField field="DECISION_DATE" selected="True" />
+            <SelectField field="WORKSITE_POSTAL_CODE" selected="True" />
+            <SelectField field="CASE_STATUS" selected="True" />
+            <SelectField field="AGENT_REPRESENTING_EMPLOYER" selected="True" />
+            <SelectField field="WAGE_RATE_OF_PAY_FROM" selected="True" />
+            <SelectField field="EMPLOYEER_NAME" selected="True" />
+            <SelectField field="RecordID" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1854" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="EMPLOYEER_NAME" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="EMPLOYEER_NAME" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_Employer_key" selected="True" input="Right_" />
+                <SelectField field="Left_EMPLOYER_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_SOC_NAME" selected="True" input="Left_" />
+                <SelectField field="Left_DECISION_DATE" selected="True" input="Left_" />
+                <SelectField field="Left_WORKSITE_POSTAL_CODE" selected="True" input="Left_" />
+                <SelectField field="Left_CASE_STATUS" selected="True" input="Left_" />
+                <SelectField field="Left_AGENT_REPRESENTING_EMPLOYER" selected="True" input="Left_" />
+                <SelectField field="Left_WAGE_RATE_OF_PAY_FROM" selected="True" input="Left_" />
+                <SelectField field="Right_EMPLOYER_NAME" selected="False" rename="Right_EMPLOYER_NAME" input="Right_" />
+                <SelectField field="Right_EMPLOYER_ADDRESS" selected="False" input="Right_" />
+                <SelectField field="Right_EMPLOYER_CITY" selected="False" input="Right_" />
+                <SelectField field="Right_EMPLOYER_STATE" selected="False" input="Right_" />
+                <SelectField field="Right_EMPLOYER_PHONE" selected="False" input="Right_" />
+                <SelectField field="Right_EMPLOYEER_NAME" selected="False" rename="Right_EMPLOYEER_NAME" input="Right_" />
+                <SelectField field="Left_EMPLOYEER_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_RecordID" selected="True" input="Left_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="2106" y="702" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="SOC_NAME" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="SOC_NAME" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Employer_key" selected="True" input="Left_" />
+                <SelectField field="Right_Job_Key" selected="True" input="Right_" />
+                <SelectField field="Left_SOC_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_DECISION_DATE" selected="True" input="Left_" />
+                <SelectField field="Left_WORKSITE_POSTAL_CODE" selected="True" input="Left_" />
+                <SelectField field="Left_CASE_STATUS" selected="True" input="Left_" />
+                <SelectField field="Left_AGENT_REPRESENTING_EMPLOYER" selected="True" input="Left_" />
+                <SelectField field="Left_WAGE_RATE_OF_PAY_FROM" selected="True" input="Left_" />
+                <SelectField field="Right_SOC_NAME" selected="False" rename="Right_SOC_NAME" input="Right_" />
+                <SelectField field="Left_EMPLOYEER_NAME" selected="True" input="Left_" />
+                <SelectField field="Left_RecordID" selected="True" input="Left_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="2394" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="DECISION_DATE" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="DECISION_DATE" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Employer_key" selected="True" input="Left_" />
+                <SelectField field="Left_Job_Key" selected="True" input="Left_" />
+                <SelectField field="Right_Date_Key" selected="True" input="Right_" />
+                <SelectField field="Left_DECISION_DATE" selected="False" input="Left_" />
+                <SelectField field="Left_WORKSITE_POSTAL_CODE" selected="True" input="Left_" />
+                <SelectField field="Left_CASE_STATUS" selected="True" input="Left_" />
+                <SelectField field="Left_AGENT_REPRESENTING_EMPLOYER" selected="True" input="Left_" />
+                <SelectField field="Left_WAGE_RATE_OF_PAY_FROM" selected="True" input="Left_" />
+                <SelectField field="Right_DECISION_DATE" selected="False" rename="Right_DECISION_DATE" input="Right_" />
+                <SelectField field="Right_Decision Month" selected="False" input="Right_" />
+                <SelectField field="Right_Decision Fiscal Quarter" selected="False" input="Right_" />
+                <SelectField field="Right_Job_Key" selected="False" rename="Right_Job_Key" input="Right_" />
+                <SelectField field="Left_EMPLOYER_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_SOC_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_EMPLOYEER_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_Right_EMPLOYEER_NAME" selected="False" input="Left_" />
+                <SelectField field="Right_Year" selected="False" input="Right_" />
+                <SelectField field="Left_RecordID" selected="True" input="Left_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="2586" y="1050" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="WORKSITE_POSTAL_CODE" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="WORKSITE_POSTAL_CODE" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Employer_key" selected="True" input="Left_" />
+                <SelectField field="Left_Job_Key" selected="True" input="Left_" />
+                <SelectField field="Left_Date_Key" selected="True" input="Left_" />
+                <SelectField field="Right_Worksite_Key" selected="True" input="Right_" />
+                <SelectField field="Left_WORKSITE_POSTAL_CODE" selected="False" input="Left_" />
+                <SelectField field="Left_CASE_STATUS" selected="True" input="Left_" />
+                <SelectField field="Left_AGENT_REPRESENTING_EMPLOYER" selected="True" input="Left_" />
+                <SelectField field="Left_WAGE_RATE_OF_PAY_FROM" selected="True" input="Left_" />
+                <SelectField field="Right_WORKSITE_CITY" selected="False" input="Right_" />
+                <SelectField field="Right_WORKSITE_COUNTY" selected="False" input="Right_" />
+                <SelectField field="Right_WORKSITE_STATE" selected="False" input="Right_" />
+                <SelectField field="Right_WORKSITE_POSTAL_CODE" selected="False" rename="Right_WORKSITE_POSTAL_CODE" input="Right_" />
+                <SelectField field="Left_EMPLOYER_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_SOC_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_DECISION_DATE" selected="False" input="Left_" />
+                <SelectField field="Left_EMPLOYEER_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_Right_EMPLOYEER_NAME" selected="False" input="Left_" />
+                <SelectField field="Left_RecordID" selected="True" input="Left_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1302" y="1074" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="WORKSITE_CITY" selected="True" />
+            <SelectField field="WORKSITE_COUNTY" selected="True" />
+            <SelectField field="WORKSITE_STATE" selected="True" />
+            <SelectField field="WORKSITE_POSTAL_CODE" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="1554" y="1062" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>Worksite_Key</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1494" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="EMPLOYEER_NAME" selected="True" />
+            <SelectField field="EMPLOYER_ADDRESS" selected="True" />
+            <SelectField field="EMPLOYER_CITY" selected="True" />
+            <SelectField field="EMPLOYER_STATE" selected="True" />
+            <SelectField field="EMPLOYER_PHONE" selected="True" />
+            <SelectField field="EMPLOYER_NAME" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="1710" y="618" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>Employer_key</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1338" y="750" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="SOC_NAME" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="1518" y="738" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>Job_Key</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1302" y="882" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="DECISION_DATE" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1386" y="882" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeMonth([DECISION_DATE])" field="Decision Month" size="8" type="Double" />
+            <FormulaField expression="IF [Decision Month]== 1 OR [Decision Month]== 2 OR [Decision Month]== 3 THEN 1&#xA;&#xA;ElseIF [Decision Month] == 4 OR [Decision Month] == 5 OR [Decision Month] == 6 THEN 2&#xA;&#xA;ElseIF [Decision Month] == 7 OR [Decision Month] == 8 OR [Decision Month] == 9  THEN 3&#xA;&#xA;ElseIF [Decision Month] == 10 OR [Decision Month]== 11 OR [Decision Month] == 12  THEN 4&#xA;&#xA;Else null() ENDIF" field="Decision Fiscal Quarter" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Decision Month = DateTimeMonth([DECISION_DATE])
+Decision Fiscal Quarter = IF [De...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="1470" y="882" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="DECISION_DATE" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="1758" y="870" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>Date_Key</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="1434" y="750" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="SOC_NAME" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="2706" y="1050" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="1602" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="EMPLOYEER_NAME" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1986" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="2202" y="690" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="2514" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2790" y="1050" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CASE_STATUS" selected="True" rename="Case_Status" />
+            <SelectField field="AGENT_REPRESENTING_EMPLOYER" selected="True" rename="Attorney" />
+            <SelectField field="WAGE_RATE_OF_PAY_FROM" selected="True" rename="Salary" />
+            <SelectField field="WORKSITE_POSTAL_CODE" selected="False" />
+            <SelectField field="DECISION_DATE" selected="False" />
+            <SelectField field="EMPLOYEER_NAME" selected="False" />
+            <SelectField field="SOC_NAME" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="1566" y="870" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="True" />
+          <InputFieldName>DECISION_DATE</InputFieldName>
+          <Format>%Y</Format>
+          <OutputFieldName>DateTime_Out</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert DECISION_DATE To:
+Custom</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1650" y="870" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="DateTime_Out" selected="True" rename="Year" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="1386" y="1074" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="WORKSITE_POSTAL_CODE" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1782" y="1038" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL|||DimWorksite</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `h1b`.`dimworksite` 
+CHANGE COLUMN `Worksite_Key` `Worksite_Key` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`Worksite_Key`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use h1b;
+drop table if exists DimWorksite;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:MySQL
+Table=DimWorksite</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1806" y="594" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL|||DimEmployer</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `h1b`.`dimemployer` 
+CHANGE COLUMN `Employer_key` `Employer_key` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`Employer_key`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use h1b;
+drop table if exists DimEmployer;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:MySQL
+Table=DimEmployer</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1818" y="762" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL|||DimJob</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `h1b`.`dimjob` 
+CHANGE COLUMN `Job_Key` `Job_Key` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`Job_Key`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use h1b;
+drop table if exists DimJob;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:MySQL
+Table=DimJob</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1890" y="906" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL|||DimDate</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `h1b`.`dimdate` 
+CHANGE COLUMN `Date_Key` `Date_Key` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`Date_Key`);
+;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use h1b;
+drop table if exists DimDate;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:MySQL
+Table=DimDate</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2874" y="1050" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:MySQL|||FactTable</File>
+          <Passwords />
+          <CachedCosmeticName />
+          <FormatSpecificOptions>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL>ALTER TABLE `h1b`.`facttable` 
+CHANGE COLUMN `Employer_key` `Employer_key` INT(11) NOT NULL ,
+CHANGE COLUMN `Job_Key` `Job_Key` INT(11) NOT NULL ,
+CHANGE COLUMN `Date_Key` `Date_Key` INT(11) NOT NULL ,
+CHANGE COLUMN `Worksite_Key` `Worksite_Key` INT(11) NOT NULL ,
+CHANGE COLUMN `RecordID` `RecordID` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`Employer_key`, `Job_Key`, `Date_Key`, `Worksite_Key`, `RecordID`);
+;
+
+ALTER TABLE `h1b`.`facttable` 
+ADD INDEX `date_idx` (`Date_Key` ASC) VISIBLE,
+ADD INDEX `job_idx` (`Job_Key` ASC) VISIBLE,
+ADD INDEX `worksite_idx` (`Worksite_Key` ASC) VISIBLE;
+;
+ALTER TABLE `h1b`.`facttable` 
+ADD CONSTRAINT `date`
+  FOREIGN KEY (`Date_Key`)
+  REFERENCES `h1b`.`dimdate` (`Date_Key`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `employer`
+  FOREIGN KEY (`Employer_key`)
+  REFERENCES `h1b`.`dimemployer` (`Employer_key`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `job`
+  FOREIGN KEY (`Job_Key`)
+  REFERENCES `h1b`.`dimjob` (`Job_Key`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `worksite`
+  FOREIGN KEY (`Worksite_Key`)
+  REFERENCES `h1b`.`dimworksite` (`Worksite_Key`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;</PostSQL>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL>use h1b;
+drop table if exists FactTable;</PreSQL>
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Create</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:MySQL
+Table=FactTable</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="540" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FY2018</AnnotationText>
+          <DefaultAnnotationText>2018.xlsx
+Table=`H-1B_FY2018$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="CASE_NUMBER" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="CASE_STATUS" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="CASE_SUBMITTED" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Date" />
+            <Field name="DECISION_DATE" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Date" />
+            <Field name="VISA_CLASS" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYMENT_START_DATE" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Date" />
+            <Field name="EMPLOYMENT_END_DATE" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Date" />
+            <Field name="EMPLOYER_NAME" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_BUSINESS_DBA" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_ADDRESS" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_CITY" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_STATE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_POSTAL_CODE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_COUNTRY" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_PROVINCE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_PHONE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="EMPLOYER_PHONE_EXT" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="AGENT_REPRESENTING_EMPLOYER" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="AGENT_ATTORNEY_NAME" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="AGENT_ATTORNEY_CITY" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="AGENT_ATTORNEY_STATE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="JOB_TITLE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="SOC_CODE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="SOC_NAME" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="NAICS_CODE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="TOTAL_WORKERS" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="NEW_EMPLOYMENT" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="CONTINUED_EMPLOYMENT" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="CHANGE_PREVIOUS_EMPLOYMENT" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="NEW_CONCURRENT_EMP" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="CHANGE_EMPLOYER" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="AMENDED_PETITION" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="FULL_TIME_POSITION" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="PREVAILING_WAGE" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="PW_UNIT_OF_PAY" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="PW_WAGE_LEVEL" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="PW_SOURCE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="PW_SOURCE_YEAR" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="PW_SOURCE_OTHER" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="WAGE_RATE_OF_PAY_FROM" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="WAGE_RATE_OF_PAY_TO" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="WAGE_UNIT_OF_PAY" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="H1B_DEPENDENT" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="WILLFUL_VIOLATOR" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="SUPPORT_H1B" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="LABOR_CON_AGREE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="PUBLIC_DISCLOSURE_LOCATION" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Double" />
+            <Field name="WORKSITE_CITY" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="WORKSITE_COUNTY" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="WORKSITE_STATE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="WORKSITE_POSTAL_CODE" size="255" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="V_String" />
+            <Field name="ORIGINAL_CERT_DATE" source="File: C:\Users\marga\Downloads\2018.xlsx|||`H-1B_FY2018$`" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="618" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CASE_SUBMITTED" selected="False" />
+            <SelectField field="VISA_CLASS" selected="False" />
+            <SelectField field="EMPLOYMENT_START_DATE" selected="False" />
+            <SelectField field="EMPLOYMENT_END_DATE" selected="False" />
+            <SelectField field="EMPLOYER_NAME" selected="True" rename="EMPLOYEER_NAME" />
+            <SelectField field="EMPLOYER_BUSINESS_DBA" selected="False" />
+            <SelectField field="EMPLOYER_POSTAL_CODE" selected="False" />
+            <SelectField field="EMPLOYER_COUNTRY" selected="False" />
+            <SelectField field="EMPLOYER_PROVINCE" selected="False" />
+            <SelectField field="EMPLOYER_PHONE_EXT" selected="False" />
+            <SelectField field="AGENT_ATTORNEY_NAME" selected="False" />
+            <SelectField field="AGENT_ATTORNEY_CITY" selected="False" />
+            <SelectField field="AGENT_ATTORNEY_STATE" selected="False" />
+            <SelectField field="JOB_TITLE" selected="False" />
+            <SelectField field="SOC_CODE" selected="False" />
+            <SelectField field="NAICS_CODE" selected="False" />
+            <SelectField field="TOTAL_WORKERS" selected="False" />
+            <SelectField field="NEW_EMPLOYMENT" selected="False" />
+            <SelectField field="CONTINUED_EMPLOYMENT" selected="False" />
+            <SelectField field="CHANGE_PREVIOUS_EMPLOYMENT" selected="False" />
+            <SelectField field="NEW_CONCURRENT_EMP" selected="False" />
+            <SelectField field="CHANGE_EMPLOYER" selected="False" />
+            <SelectField field="AMENDED_PETITION" selected="False" />
+            <SelectField field="FULL_TIME_POSITION" selected="False" />
+            <SelectField field="PREVAILING_WAGE" selected="False" />
+            <SelectField field="PW_UNIT_OF_PAY" selected="False" />
+            <SelectField field="PW_WAGE_LEVEL" selected="False" />
+            <SelectField field="PW_SOURCE" selected="False" />
+            <SelectField field="PW_SOURCE_YEAR" selected="False" />
+            <SelectField field="PW_SOURCE_OTHER" selected="False" />
+            <SelectField field="WAGE_RATE_OF_PAY_TO" selected="False" />
+            <SelectField field="H1B_DEPENDENT" selected="False" />
+            <SelectField field="WILLFUL_VIOLATOR" selected="False" />
+            <SelectField field="SUPPORT_H1B" selected="False" />
+            <SelectField field="LABOR_CON_AGREE" selected="False" />
+            <SelectField field="PUBLIC_DISCLOSURE_LOCATION" selected="False" />
+            <SelectField field="ORIGINAL_CERT_DATE" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="726" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="LCA_CASE_NUMBER" selected="True" rename="CASE_NUMBER" />
+            <SelectField field="STATUS" selected="True" rename="CASE_STATUS" />
+            <SelectField field="LCA_CASE_SUBMIT" selected="False" />
+            <SelectField field="DECISION_DATE" selected="True" type="WString" size="19" />
+            <SelectField field="LCA_CASE_EMPLOYER_NAME" selected="True" rename="EMPLOYEER_NAME" />
+            <SelectField field="LCA_CASE_SOC_CODE" selected="False" />
+            <SelectField field="LCA_CASE_SOC_NAME" selected="True" rename="SOC_NAME" />
+            <SelectField field="LCA_CASE_JOB_TITLE" selected="False" />
+            <SelectField field="LCA_CASE_WAGE_RATE_FROM" selected="True" rename="WAGE_RATE_OF_PAY_FROM" type="Double" size="8" />
+            <SelectField field="LCA_CASE_WORKLOC1_CITY" selected="True" rename="WORKSITE_CITY" />
+            <SelectField field="LCA_CASE_WORKLOC1_STATE" selected="True" rename="WORKSITE_STATE" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="702" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="LCA_CASE_NUMBER" selected="True" rename="CASE_NUMBER" />
+            <SelectField field="STATUS" selected="True" rename="CASE_STATUS" />
+            <SelectField field="LCA_CASE_SUBMIT" selected="False" />
+            <SelectField field="LCA_CASE_EMPLOYER_NAME" selected="True" rename="EMPLOYEER_NAME" />
+            <SelectField field="LCA_CASE_SOC_CODE" selected="False" />
+            <SelectField field="LCA_CASE_SOC_NAME" selected="True" rename="SOC_NAME" />
+            <SelectField field="LCA_CASE_JOB_TITLE" selected="False" />
+            <SelectField field="LCA_CASE_WAGE_RATE_FROM" selected="True" rename="WAGE_RATE_OF_PAY_FROM" />
+            <SelectField field="WORK_LOCATION_CITY1" selected="True" rename="WORKSITE_CITY" />
+            <SelectField field="WORK_LOCATION_STATE1" selected="True" rename="WORKSITE_STATE" />
+            <SelectField field="LCA_CASE_WORKLOC1_CITY" selected="False" rename="WORKSITE_CITY" />
+            <SelectField field="LCA_CASE_WORKLOC1_STATE" selected="False" rename="WORKSITE_STATE" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Select corresponding column to union ]]></AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+        <Position x="834" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DECISION_DATE</Field>
+          <RegExExpression value="(.*)\s(.*)" />
+          <CaseInsensitve value="True" />
+          <Method>Replace</Method>
+          <Replace expression="$1">
+            <CopyUnmatched value="True" />
+          </Replace>
+          <ParseSimple>
+            <SplitToRows value="False" />
+            <RootName>DECISION_DATE</RootName>
+            <NumFields value="3" />
+            <ErrorHandling>Warn</ErrorHandling>
+          </ParseSimple>
+          <ParseComplex>
+            <Field field="RegExOut1" type="WString" size="19" />
+            <Field field="RegExOut2" type="WString" size="19" />
+          </ParseComplex>
+          <Match>
+            <Field>CASE_NUMBER_Matched</Field>
+            <ErrorUnmatched value="False" />
+          </Match>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Change the date type to string first and split the string by white space and thus get the date part ]]></AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="954" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeFormat([DECISION_DATE],'%Y-%m-%d')" field="DECISION_DATE" size="19" type="WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[DECISION_DATE = DateTimeFormat([DECISION_DATE],'%Y-%m-%d')
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1026" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="DECISION_DATE" selected="True" type="Date" size="10" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="522" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FY2010</AnnotationText>
+          <DefaultAnnotationText>2010.xlsx
+Table=`H1B_FY2010$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="LCA_CASE_NUMBER" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="STATUS" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_SUBMIT" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="Date" />
+            <Field name="DECISION_DATE" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="Date" />
+            <Field name="LCA_CASE_EMPLOYER_NAME" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_ADDRESS1" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_ADDRESS2" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_CITY" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_STATE" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_POSTAL_CODE" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="Double" />
+            <Field name="LCA_CASE_SOC_CODE" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_SOC_NAME" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="LCA_CASE_JOB_TITLE" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_WString" />
+            <Field name="LCA_CASE_WAGE_RATE_FROM" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="Double" />
+            <Field name="WORK_LOCATION_CITY1" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="WORK_LOCATION_STATE1" size="255" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="V_String" />
+            <Field name="YR_SOURCE_PUB_1" source="File: C:\Users\marga\Downloads\2010.xlsx|||`H1B_FY2010$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="540" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[FY2014
+]]></AnnotationText>
+          <DefaultAnnotationText>2014.xlsx
+Table=`H-1B_FY2014$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="LCA_CASE_NUMBER" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="STATUS" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_SUBMIT" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="DateTime" />
+            <Field name="DECISION_DATE" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="DateTime" />
+            <Field name="VISA_CLASS" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYMENT_START_DATE" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="Date" />
+            <Field name="LCA_CASE_EMPLOYMENT_END_DATE" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="Date" />
+            <Field name="LCA_CASE_EMPLOYER_NAME" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_ADDRESS" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_CITY" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_STATE" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_EMPLOYER_POSTAL_CODE" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_SOC_CODE" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_SOC_NAME" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_JOB_TITLE" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_WString" />
+            <Field name="LCA_CASE_WAGE_RATE_FROM" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_WAGE_RATE_TO" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_WAGE_RATE_UNIT" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="FULL_TIME_POS" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="TOTAL_WORKERS" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="Double" />
+            <Field name="LCA_CASE_WORKLOC1_CITY" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_WString" />
+            <Field name="LCA_CASE_WORKLOC1_STATE" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="PW_1" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="PW_UNIT_1" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="PW_SOURCE_1" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="OTHER_WAGE_SOURCE_1" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="YR_SOURCE_PUB_1" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_WORKLOC2_CITY" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_WORKLOC2_STATE" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="PW_2" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="PW_UNIT_2" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="PW_SOURCE_2" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="OTHER_WAGE_SOURCE_2" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="YR_SOURCE_PUB_2" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+            <Field name="LCA_CASE_NAICS_CODE" size="255" source="File: C:\Users\marga\Downloads\2014.xlsx|||`H-1B_FY2014$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="618" y="786" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="LCA_CASE_NUMBER" selected="True" />
+            <SelectField field="STATUS" selected="True" />
+            <SelectField field="LCA_CASE_SUBMIT" selected="True" />
+            <SelectField field="DECISION_DATE" selected="True" />
+            <SelectField field="LCA_CASE_EMPLOYER_NAME" selected="True" />
+            <SelectField field="LCA_CASE_SOC_CODE" selected="True" />
+            <SelectField field="LCA_CASE_SOC_NAME" selected="True" />
+            <SelectField field="LCA_CASE_JOB_TITLE" selected="True" />
+            <SelectField field="LCA_CASE_WAGE_RATE_FROM" selected="True" />
+            <SelectField field="WORK_LOCATION_CITY1" selected="True" />
+            <SelectField field="WORK_LOCATION_STATE1" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="618" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="LCA_CASE_NUMBER" selected="True" />
+            <SelectField field="STATUS" selected="True" />
+            <SelectField field="LCA_CASE_SUBMIT" selected="True" />
+            <SelectField field="DECISION_DATE" selected="True" />
+            <SelectField field="LCA_CASE_EMPLOYER_NAME" selected="True" />
+            <SelectField field="LCA_CASE_SOC_CODE" selected="True" />
+            <SelectField field="LCA_CASE_SOC_NAME" selected="True" />
+            <SelectField field="LCA_CASE_JOB_TITLE" selected="True" />
+            <SelectField field="LCA_CASE_WAGE_RATE_FROM" selected="True" />
+            <SelectField field="LCA_CASE_WORKLOC1_CITY" selected="True" />
+            <SelectField field="LCA_CASE_WORKLOC1_STATE" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1134" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="True" />
+          <OutputOrder>
+            <Connection>#1</Connection>
+            <Connection>#3</Connection>
+            <Connection>#2</Connection>
+          </OutputOrder>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="1206" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="522" y="222" width="624" height="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Data preparation  part. 
+1. Union H1B data in 2018,2014, and 2010.
+2. Select only useful columns for our star schema
+3. Uniform some fields in the same format ]]></Text>
+          <Font name="Arial" size="15.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="255" g="255" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="522" y="402" width="432" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Load 2018 Data, select related columns ]]></Text>
+          <Font name="Arial" size="9.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="226" g="233" b="150" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="522" y="582" width="492" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Load 2014 Data, select related columns, remove the time in date dimension ]]></Text>
+          <Font name="Arial" size="9.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="226" g="233" b="150" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="522" y="762" width="432" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Load 2010 data, select related columns ]]></Text>
+          <Font name="Arial" size="9.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="226" g="233" b="150" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="63">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1266" y="222" width="576" height="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Dimensional Table Building Part. 
+]]></Text>
+          <Font name="Arial" size="21.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="255" g="255" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1926" y="222" width="1032" height="120" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Fact Table by Joining ]]></Text>
+          <Font name="Arial" size="24" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="255" g="255" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1290" y="594" width="432" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Employer dimension. ]]></Text>
+          <Font name="Arial" size="9.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="226" g="233" b="150" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="66">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1302" y="714" width="432" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>SOC dimension</Text>
+          <Font name="Arial" size="9.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="226" g="233" b="150" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="67">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1302" y="846" width="432" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Date dimension</Text>
+          <Font name="Arial" size="9.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="226" g="233" b="150" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1302" y="1050" width="432" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Work site dimension</Text>
+          <Font name="Arial" size="9.75" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="226" g="233" b="150" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="11" Connection="Right" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="11" Connection="Join" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="11" Connection="Left" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="12" Connection="Join" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="12" Connection="Left" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="13" Connection="Join" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="13" Connection="Left" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="14" Connection="Join" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="14" Connection="Left" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="14" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="14" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="12" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="12" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Unique" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="13" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="13" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Unique" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Unique" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Unique" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Final Final ETL</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
